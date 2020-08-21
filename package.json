@@ -1,0 +1,60 @@
+{
+  "name": "stencil-vue2-output-target",
+  "version": "0.0.1",
+  "description": "Vue2  output target for @stencil/core components.",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "vue-component-lib/"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prebuild": "rimraf ./dist",
+    "build": "tsc && npm run rollup",
+    "watch": "tsc --watch",
+    "rollup": "rollup -c",
+    "version": "npm run build",
+    "release": "np",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diondree/stencil-vue2-output-target.git"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.10",
+    "@types/node": "^14.6.0",
+    "jest": "^26.4.1",
+    "rollup": "^2.26.4",
+    "typescript": "^4.0.2",
+    "vue": "^2.6.12"
+  },
+  "dependencies": {
+    "@stencil/core": "^1.17.3",
+    "path": "^0.12.7"
+  },
+  "peerDependencies": {
+    "@stencil/core": ">=1.8.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(js|ts|tsx)$": "<rootDir>/test/jest.preprocessor.js"
+    },
+    "testRegex": "(\\.(test|spec))\\.(ts?|tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ],
+    "testURL": "http://localhost"
+  }
+}
