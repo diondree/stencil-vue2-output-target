@@ -67,6 +67,13 @@ export const ${tagNameAsPascal} = /*@__PURE__*/ Vue.extend({
 ${props}
 ${model}
 ${methods}
+  updated: function() {
+    Object.keys(this.$props).forEach((prop) => {
+      if (this[prop]){
+        this.$refs.wc[prop] = this[prop];
+      }
+    });
+  },
   render: createCommonRender('${cmpMeta.tagName}', [${cmpMeta.events
     .map((e) => `'${e.name}'`)
     .join(", ")}]),
