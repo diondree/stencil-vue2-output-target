@@ -1,3 +1,6 @@
+[![npm version](https://img.shields.io/npm/v/stencil-vue2-output-target.svg?style=flat)](https://www.npmjs.com/package/stencil-vue2-output-target)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/diondree/stencil-vue2-output-target/blob/master/LICENSE.md)
+
 # Vue 2 Stencil Output Targets
 
 This project was forked from [Stencils Vue Output targets](https://github.com/ionic-team/stencil-ds-output-targets/tree/master/packages/vue-output-target) in an effort to fully support Vue 2 for components built with `@stencil/core`
