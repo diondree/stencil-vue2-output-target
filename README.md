@@ -2,6 +2,16 @@
 
 This project was forked from [Stencils Vue Output targets](https://github.com/ionic-team/stencil-ds-output-targets/tree/master/packages/vue-output-target) in an effort to fully support Vue 2 for components built with `@stencil/core`
 
+# Installation
+
+```bash
+npm install -D stencil-vue2-output-target
+
+# OR
+
+yarn add -D stencil-vue2-output-target
+```
+
 # Usage
 
 ## Vue
@@ -10,7 +20,7 @@ This project was forked from [Stencils Vue Output targets](https://github.com/io
 
 ```ts
 import { Config } from "@stencil/core";
-import { vueOutputTarget } from "@stencil/vue-output-target";
+import { vueOutputTarget } from "stencil-vue2-output-target";
 
 export const config: Config = {
   namespace: "demo",
