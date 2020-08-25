@@ -1,15 +1,12 @@
-import { createComponentDefinition } from "../src/generate-vue-component";
+import { createComponentDefinition } from '../src/generate-vue-component';
 
-describe("createComponentDefinition", () => {
-  const generateComponentDefinition = createComponentDefinition(
-    "Components",
-    []
-  );
+describe('createComponentDefinition', () => {
+  const generateComponentDefinition = createComponentDefinition('Components', []);
 
-  it("should create a Vue component with the render method using createCommonRender", () => {
+  it('should create a Vue component with the render method using createCommonRender', () => {
     const output = generateComponentDefinition({
       properties: [],
-      tagName: "my-component",
+      tagName: 'my-component',
       methods: [],
       events: [],
     });
@@ -21,26 +18,26 @@ export const MyComponent = /*@__PURE__*/ Vue.extend({
 `);
   });
 
-  it("should pass event references to the createCommonRender function", () => {
+  it('should pass event references to the createCommonRender function', () => {
     const output = generateComponentDefinition({
       properties: [],
-      tagName: "my-component",
+      tagName: 'my-component',
       methods: [],
       events: [
         {
           internal: false,
-          name: "my-event",
-          method: "",
+          name: 'my-event',
+          method: '',
           bubbles: true,
           cancelable: true,
           composed: false,
           docs: {
-            text: "",
+            text: '',
             tags: [],
           },
           complexType: {
-            original: "",
-            resolved: "",
+            original: '',
+            resolved: '',
             references: {},
           },
         },
@@ -54,28 +51,28 @@ export const MyComponent = /*@__PURE__*/ Vue.extend({
 `);
   });
 
-  it("should add a prop with Reference to the original component library prop type", () => {
+  it('should add a prop with Reference to the original component library prop type', () => {
     const output = generateComponentDefinition({
       properties: [
         {
-          name: "myProp",
+          name: 'myProp',
           internal: false,
           mutable: false,
           optional: false,
           required: false,
-          type: "string",
+          type: 'string',
           complexType: {
-            original: "",
-            resolved: "",
+            original: '',
+            resolved: '',
             references: {},
           },
           docs: {
-            text: "",
+            text: '',
             tags: [],
           },
         },
       ],
-      tagName: "my-component",
+      tagName: 'my-component',
       methods: [],
       events: [],
     });
@@ -90,23 +87,23 @@ export const MyComponent = /*@__PURE__*/ Vue.extend({
 `);
   });
 
-  it("should add a method with Reference to the original component library prop type", () => {
+  it('should add a method with Reference to the original component library prop type', () => {
     const output = generateComponentDefinition({
       properties: [],
-      tagName: "my-component",
+      tagName: 'my-component',
       methods: [
         {
-          name: "myProp",
+          name: 'myProp',
           internal: false,
           docs: {
-            text: "",
+            text: '',
             tags: [],
           },
           complexType: {
-            signature: "",
+            signature: '',
             parameters: [],
             references: {},
-            return: "",
+            return: '',
           },
         },
       ],

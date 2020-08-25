@@ -1,28 +1,23 @@
-import { dashToPascalCase } from "./utils";
-import type { ComponentCompilerMeta } from "@stencil/core/internal";
-import type { ComponentModelConfig } from "./types";
+import { dashToPascalCase } from './utils';
+import type { ComponentCompilerMeta } from '@stencil/core/internal';
+import type { ComponentModelConfig } from './types';
 
 export const createComponentDefinition = (
   importTypes: string,
-  componentModelConfigs: ComponentModelConfig[] | undefined
-) => (
-  cmpMeta: Pick<
-    ComponentCompilerMeta,
-    "properties" | "tagName" | "methods" | "events"
-  >
-) => {
+  componentModelConfigs: ComponentModelConfig[] | undefined,
+) => (cmpMeta: Pick<ComponentCompilerMeta, 'properties' | 'tagName' | 'methods' | 'events'>) => {
   const tagNameAsPascal = dashToPascalCase(cmpMeta.tagName);
-  let props = "";
-  let model = "";
-  let methods = "";
+  let props = '';
+  let model = '';
+  let methods = '';
 
   if (Array.isArray(cmpMeta.properties) && cmpMeta.properties.length > 0) {
     const relevantPropsConfig = cmpMeta.properties
       .map(
         (prop) =>
-          `    ${prop.name}: {} as PropOptions<${importTypes}.${tagNameAsPascal}['${prop.name}']>,`
+          `    ${prop.name}: {} as PropOptions<${importTypes}.${tagNameAsPascal}['${prop.name}']>,`,
       )
-      .join("\n");
+      .join('\n');
 
     props = `
   props: {
@@ -52,9 +47,9 @@ ${relevantPropsConfig}
     const relevantMethodConfig = cmpMeta.methods
       .map(
         (method) =>
-          `    ${method.name}: createCommonMethod('${method.name}') as ${importTypes}.${tagNameAsPascal}['${method.name}'],`
+          `    ${method.name}: createCommonMethod('${method.name}') as ${importTypes}.${tagNameAsPascal}['${method.name}'],`,
       )
-      .join("\n");
+      .join('\n');
 
     methods = `
   methods: {
@@ -67,15 +62,8 @@ export const ${tagNameAsPascal} = /*@__PURE__*/ Vue.extend({
 ${props}
 ${model}
 ${methods}
-  updated: function() {
-    Object.keys(this.$props).forEach((prop) => {
-      if (this[prop]){
-        this.$refs.wc[prop] = this[prop];
-      }
-    });
-  },
   render: createCommonRender('${cmpMeta.tagName}', [${cmpMeta.events
     .map((e) => `'${e.name}'`)
-    .join(", ")}]),
+    .join(', ')}]),
 });\n`;
 };
