@@ -1,6 +1,6 @@
 {
   "name": "stencil-vue2-output-target",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Vue2  output target for @stencil/core components.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -29,9 +29,9 @@
     "url": "git+https://github.com/diondree/stencil-vue2-output-target.git"
   },
   "devDependencies": {
-    "@types/node": "^14.6.0",
     "@stencil/core": "^1.17.3",
     "@types/jest": "^26.0.9",
+    "@types/node": "^14.6.0",
     "jest": "^26.3.0",
     "np": "^6.4.0",
     "rollup": "^2.26.4",
