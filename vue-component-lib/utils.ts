@@ -31,7 +31,7 @@ export const createCommonRender = (
         ref: "wc",
         domProps: vueElement.$props,
         on: allListeners,
-        attrs: attributes,
+        attrs: { ...attributes, "data-testid": tagName },
       },
       [vueElement.$slots.default]
     );
